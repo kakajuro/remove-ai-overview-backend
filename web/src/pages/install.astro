@@ -1,9 +1,15 @@
 ---
-import { Navbar } from "@/components/Navbar";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 
+import { DownloadIcons } from "@/components/DowloadIcons";
 ---
 
 <BaseLayout title="Install">
-  <h2>hi</h2>
+  <main class="flex flex-col items-center justify-center w-screen p-12 mt-36">
+    <div class="flex flex-col">
+      <h1 class="text-3xl md:text-5xl text-center sm:text-left font-bold font-jost">available on these platforms:</h1>
+    </div>
+    <DownloadIcons client:load />
+    <p class="mt-12 text-lg">Or compile from <a href="https://github.com/kakajuro/remove-ai-overview/blob/main/README.md" class="underline hover:cursor-pointer hover:scale-102">source</a></p>
+  </main>
 </BaseLayout>
