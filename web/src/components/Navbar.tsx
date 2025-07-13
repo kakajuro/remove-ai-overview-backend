@@ -12,7 +12,9 @@ export function Navbar() {
       <a href="/donate" className="hover:cursor-pointer hover:scale-102 hover:text-red-600 transition-all ease-in-out">Donate</a>
       </div>
       <div className="ml-auto">
-        <FaGithub className="text-xl"/>
+        <a href="https://github.com/kakajuro/remove-ai-overview" target="_blank">
+          <FaGithub className="text-3xl hover:cursor-pointer hover:scale-102 transition-all ease-in-out"/>
+        </a>
       </div>
     </nav>
   )

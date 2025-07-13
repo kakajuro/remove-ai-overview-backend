@@ -1,5 +1,3 @@
-"use client";
-
 import { TypingAnimation } from "@/components/magicui/typing-animation";
 
 export function HeroText() {

@@ -1,5 +1,3 @@
-"use client";
-
 import { BlurFade } from "@/components/magicui/blur-fade";
 
 export function DownloadSection() {

@@ -7,7 +7,7 @@ import { DownloadSection } from "@/components/DownloadSection";
 import { HeroText } from '@/components/HeroText';
 import { HeaderText } from '@/components/HeaderText';
 
-import { StarsBackground } from '@/components/aceternity/stars-background';
+import Particles from '@/components/magicui/particles';
 ---
 
 <BaseLayout title="Remove AI Overview">
@@ -24,4 +24,4 @@ import { StarsBackground } from '@/components/aceternity/stars-background';
   </main>
 </BaseLayout>
 
-<StarsBackground client:load />
+<Particles className="absolute inset-0 z-[-5]" quantity={100} refresh client:load />
