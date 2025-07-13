@@ -6,9 +6,12 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import { DownloadSection } from "@/components/DownloadSection";
 import { HeroText } from '@/components/HeroText';
 import { HeaderText } from '@/components/HeaderText';
+
+import { StarsBackground } from '@/components/aceternity/stars-background';
 ---
 
 <BaseLayout title="Remove AI Overview">
+  <StarsBackground client:only />
   <main class="w-screen flex flex-col items-center justify-center pt-32">
     <Image
       src="/removeaioverviewlogo.png"
@@ -18,7 +21,7 @@ import { HeaderText } from '@/components/HeaderText';
     />
     <HeaderText client:load />
     <HeroText client:load />
-    <DownloadSection client:load/>
+    <DownloadSection client:load />
   </main>
 </BaseLayout>
 
