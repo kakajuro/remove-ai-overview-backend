@@ -78,7 +78,7 @@ export function TypingAnimation({
     <MotionComponent
       ref={elementRef}
       className={cn(
-        "text-3xl font-semibold tracking-[-0.02em]",
+        "text-xl sm:text-2xl md:text-3xl font-semibold tracking-[-0.02em]",
         className,
       )}
       as="p"
