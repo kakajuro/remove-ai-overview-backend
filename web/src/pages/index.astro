@@ -11,8 +11,7 @@ import { StarsBackground } from '@/components/aceternity/stars-background';
 ---
 
 <BaseLayout title="Remove AI Overview">
-  <StarsBackground client:only />
-  <main class="w-screen flex flex-col items-center justify-center pt-32">
+  <main class="w-screen flex flex-col items-center justify-center pt-36">
     <Image
       src="/removeaioverviewlogo.png"
       alt="Remove AI Overview logo"
@@ -25,3 +24,4 @@ import { StarsBackground } from '@/components/aceternity/stars-background';
   </main>
 </BaseLayout>
 
+<StarsBackground client:load />
