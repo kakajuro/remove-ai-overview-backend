@@ -1,0 +1,20 @@
+services:
+  web-test:
+    build:
+      context: web
+      dockerfile: Dockerfile
+      target: dev
+    restart: "no"
+    volumes:
+      - ./web/:/app
+      - astro_node_modules:/app/node_modules
+    ports:
+      - "3000:3000"
+    networks:
+      - rao-dev
+
+networks:
+  rao-dev:
+
+volumes:
+  astro_node_modules:
