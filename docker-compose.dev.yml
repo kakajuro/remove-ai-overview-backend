@@ -1,5 +1,5 @@
 services:
-  web-test:
+  web-dev:
     build:
       context: web
       dockerfile: Dockerfile
@@ -8,10 +8,24 @@ services:
     volumes:
       - ./web/:/app
       - astro_node_modules:/app/node_modules
-    ports:
-      - "3000:3000"
     networks:
       - rao-dev
+
+  caddy:
+    container_name: caddy
+    image: caddy:2-alpine
+    restart: unless-stopped
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./caddy/Caddyfile.dev:/etc/caddy/Caddyfile
+      - ./caddy/caddy_data:/data
+      - ./caddy/caddy_config:/config
+    networks:
+      - rao-dev
+    depends_on:
+      - web-dev
 
 networks:
   rao-dev:

@@ -1,0 +1,9 @@
+{
+    local_certs
+}
+
+test.localhost {
+    tls internal
+    encode gzip
+    reverse_proxy web-dev:3000
+}
