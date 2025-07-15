@@ -11,7 +11,8 @@ docker compose up -d --build
 
 # Cleanup
 echo Cleaning unused containers
-docker system prune -a -f
+docker image prune -f
+docker container prune -f
 
 echo Deployment complete
 git pull
