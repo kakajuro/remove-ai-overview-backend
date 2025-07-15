@@ -22,7 +22,7 @@ jobs:
         with: 
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.PASSWORD }}
+          key: ${{ secrets.KEY }}
           script: |
             cd var/www/remove-ai-overview-backend
             git pull
