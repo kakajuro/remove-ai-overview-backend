@@ -19,5 +19,5 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Alert CD action
-        run: echo Config changed so alert CD action
+      - name: Alert deploy script
+        run: echo Alert deploy script
