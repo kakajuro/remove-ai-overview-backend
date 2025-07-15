@@ -1,7 +1,7 @@
 services:
   # Site
   RAOweb:
-    container_name: web
+    container_name: RAOweb
     image: ghcr.io/kakajuro/tidytube-web:latest
     restart: unless-stopped
     volumes:
@@ -15,7 +15,7 @@ services:
 
   #Umami (website analytics)
   RAOumami:
-    container_name: umami
+    container_name: RAOumami
     image: ghcr.io/umami-software/umami:postgresql-latest
     ports:
       - "3000:3000"
@@ -33,7 +33,7 @@ services:
     networks:
       - rao
   RAOumami_db:
-    container_name: umami_db
+    container_name: RAOumami_db
     image: postgres:15-alpine
     volumes:
       - ./umami/umami-db-data:/var/lib/postgresql/data
@@ -49,7 +49,7 @@ services:
       - rao
 
   RAOcaddy:
-    container_name: caddy
+    container_name: RAOcaddy
     image: caddy:2-alpine
     restart: unless-stopped
     ports:
@@ -62,8 +62,8 @@ services:
     networks:
       - rao
     depends_on:
-      - web
-      - umami
+      - RAOweb
+      - RAOumami
     env_file:
       - ./caddy/.env
 

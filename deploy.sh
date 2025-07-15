@@ -14,3 +14,4 @@ echo Cleaning unused containers
 docker system prune -a -f
 
 echo Deployment complete
+git pull
