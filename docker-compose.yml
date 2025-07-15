@@ -48,24 +48,24 @@ services:
     networks:
       - rao
 
-  RAOcaddy:
-    container_name: RAOcaddy
-    image: caddy:2-alpine
-    restart: unless-stopped
-    ports:
-      - 80:80
-      - 443:443
-    volumes:
-      - ./caddy/Caddyfile:/etc/caddy/Caddyfile
-      - ./caddy/caddy_data:/data
-      - ./caddy/caddy_config:/config
-    networks:
-      - rao
-    depends_on:
-      - RAOweb
-      - RAOumami
-    env_file:
-      - ./caddy/.env
+  # RAOcaddy:
+  #   container_name: RAOcaddy
+  #   image: caddy:2-alpine
+  #   restart: unless-stopped
+  #   ports:
+  #     - 80:80
+  #     - 443:443
+  #   volumes:
+  #     - ./caddy/Caddyfile:/etc/caddy/Caddyfile
+  #     - ./caddy/caddy_data:/data
+  #     - ./caddy/caddy_config:/config
+  #   networks:
+  #     - rao
+  #   depends_on:
+  #     - RAOweb
+  #     - RAOumami
+  #   env_file:
+  #     - ./caddy/.env
 
 networks:
   rao:
