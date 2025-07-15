@@ -11,7 +11,7 @@ www.{$DOMAIN_NAME:domain.invalid} {
 
 analytics.{$DOMAIN_NAME:domain.invalid} {
   encode gzip
-  reverse_proxy RAOumami:3000
+  reverse_proxy RAOumami:3001
 }
 
 ok.{$DOMAIN_NAME:domain.invalid} {
