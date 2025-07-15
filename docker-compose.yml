@@ -20,7 +20,7 @@ services:
     ports:
       - "3000:3000"
     depends_on:
-      umami_db:
+      RAOumami_db:
         condition: service_healthy
     restart: always
     healthcheck:
