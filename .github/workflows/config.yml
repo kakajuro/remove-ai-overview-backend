@@ -1,0 +1,23 @@
+name: config
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "caddy/Caddyfile"
+      - "docker-compose.yml"
+      - "deploy.sh"
+
+  workflow_dispatch: 
+
+jobs:
+  alert_cd_action:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Alert CD action
+        run: echo Config changed so alert CD action

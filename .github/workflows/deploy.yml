@@ -1,0 +1,30 @@
+name: cd
+
+on:
+  workflow_run: 
+    workflows: ["web", "config"]
+    types:
+      - completed
+
+  workflow_dispatch:
+
+    
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: SSH into VPS
+        uses: appleboy/ssh-action@master
+        with: 
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.PASSWORD }}
+          script: |
+            cd var/www/remove-ai-overview-backend
+            git pull
+            chmod +x ./deploy.sh
+            ./deploy.sh
