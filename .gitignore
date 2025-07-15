@@ -39,3 +39,6 @@ caddy/caddy_data/*
 
 #umami
 umami/umami-db-data/*
+
+todo.txt
+scpenv.sh
