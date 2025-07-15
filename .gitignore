@@ -36,3 +36,6 @@ pnpm-debug.log*
 # caddy
 caddy/caddy_config/*
 caddy/caddy_data/*
+
+#umami
+umami/umami-db-data/*

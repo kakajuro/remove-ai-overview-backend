@@ -1,0 +1,19 @@
+# Production Caddyfile
+
+{$DOMAIN_NAME:domain.invalid} {
+  encode gzip
+	reverse_proxy web:3000
+}
+
+www.{$DOMAIN_NAME:domain.invalid} {
+    redir https://{$DOMAIN_NAME}{uri} permanent
+}
+
+analytics.{$DOMAIN_NAME:domain.invalid} {
+  encode gzip
+  reverse_proxy umami:3000
+}
+
+ok.{$DOMAIN_NAME:domain.invalid} {
+  respond /health-check 200
+}
