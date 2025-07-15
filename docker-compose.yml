@@ -12,6 +12,7 @@ services:
       - 4321:3000
     networks:
       - rao
+      - global-network
 
   #Umami (website analytics)
   RAOumami:
@@ -32,6 +33,7 @@ services:
       - ./umami/.env
     networks:
       - rao
+      - global-network
   RAOumami_db:
     container_name: RAOumami_db
     image: postgres:15-alpine
@@ -47,6 +49,7 @@ services:
       - ./umami/.env
     networks:
       - rao
+      - global-network
 
   # RAOcaddy:
   #   container_name: RAOcaddy
@@ -69,3 +72,6 @@ services:
 
 networks:
   rao:
+
+  global-network:
+    external: true
