@@ -26,7 +26,7 @@ Go to the project directory
   cd my-project
 ```
 
-### Running the website individually
+### Running the website
 
 For the website:
 
@@ -34,19 +34,6 @@ For the website:
   cd web
   yarn dev
 ```
-
-
-### Running the services together
-
-The services can be ran together using Docker and Docker Compose.
-
-### Development:
-
-```bash
-  docker compose -f "docker-compose.dev.yml" up -d
-```
-
-This will start up the website container with Caddy as a reverse proxy to it. The site will be available ```test.localhost```.
 
 ### Production:
 
