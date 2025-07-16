@@ -1,23 +1,23 @@
-FROM node:22-alpine AS base
+FROM node:22-alpine
+
+# Set working directory
 WORKDIR /app
-# By copying only the package.json and yarn.lock here, we ensure that the following -deps steps are independent of the source code.
-# Therefore, the -deps steps will be skipped if only the source code changes.
-COPY package.json yarn.lock ./
-FROM base AS deps
+
+# Copy everything
+COPY . .
+
+# Install all dependencies (dev + prod for testing)
 RUN yarn install --frozen-lockfile
-FROM deps AS dev
-ENV PATH /app/node_modules/.bin:$PATH
-COPY . .
-CMD [ "astro", "dev" ]
-FROM deps AS build
-COPY . .
+
+# Build the Astro app
 RUN yarn build
-FROM base AS runtime
-COPY package.json yarn.lock ./
-RUN yarn install --frozen-lockfile
-#COPY --from=deps /app/node_modules ./node_modules
-COPY --from=build /app/dist ./dist
+
+# Set environment variables
 ENV HOST=0.0.0.0
 ENV PORT=3000
+
+# Expose port
 EXPOSE 3000
-CMD node dist/server/entry.mjs
+
+# Run the built server
+CMD ["node", "./dist/server/entry.mjs"]
