@@ -1,30 +1,23 @@
 FROM node:22-alpine AS base
 WORKDIR /app
-
-# By copying only the package.json and yarn.lock here, we ensure that the following `-deps` steps are independent of the source code.
-# Therefore, the `-deps` steps will be skipped if only the source code changes.
+# By copying only the package.json and yarn.lock here, we ensure that the following -deps steps are independent of the source code.
+# Therefore, the -deps steps will be skipped if only the source code changes.
 COPY package.json yarn.lock ./
-
-FROM base AS build-deps
-RUN npm install
-
-FROM base AS prod-deps
-RUN npm install --omit=dev
-
-FROM build-deps AS dev
+FROM base AS deps
+RUN yarn install --frozen-lockfile
+FROM deps AS dev
 ENV PATH /app/node_modules/.bin:$PATH
 COPY . .
 CMD [ "astro", "dev" ]
-
-FROM build-deps AS build
+FROM deps AS build
 COPY . .
-RUN npm run build
-
+RUN yarn build
 FROM base AS runtime
-COPY --from=prod-deps /app/node_modules ./node_modules
+COPY package.json yarn.lock ./
+RUN yarn install --frozen-lockfile
+#COPY --from=deps /app/node_modules ./node_modules
 COPY --from=build /app/dist ./dist
-
 ENV HOST=0.0.0.0
 ENV PORT=3000
 EXPOSE 3000
-CMD node ./dist/server/entry.mjs
+CMD node .app/dist/server/entry.mjs
