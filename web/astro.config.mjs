@@ -13,7 +13,7 @@ export default defineConfig({
   },
   output: 'server',
   adapter: node({
-    mode: 'middleware'
+    mode: 'standalone'
   }),
   server: { port: 3000, host: true }
 });

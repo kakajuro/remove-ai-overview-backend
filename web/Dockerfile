@@ -20,4 +20,4 @@ ENV PORT=3000
 EXPOSE 3000
 
 # Run the built server
-CMD ["node", "./dist/server/entry.mjs"]
+CMD ["node", "dist/server/entry.mjs"]
