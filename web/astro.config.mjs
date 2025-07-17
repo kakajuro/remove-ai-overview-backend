@@ -7,6 +7,10 @@ import sitemap from '@astrojs/sitemap';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://removeaioverview.com',
+  redirects: {
+    "/about": "/install",
+    "/donate": "/install"
+  },
   integrations: [react(), sitemap()],
   vite: {
     plugins: [tailwindcss()]
