@@ -18,4 +18,4 @@ COPY --from=build /app/dist ./dist
 ENV HOST=0.0.0.0
 ENV PORT=3000
 EXPOSE 3000
-CMD node .app/dist/server/entry.mjs
+CMD node dist/server/entry.mjs
