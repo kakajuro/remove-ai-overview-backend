@@ -1,0 +1,27 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import MyConfetti from '@/components/MyConfetti';
+
+// const extensionRef = Astro.request.headers.get("extension-ref");
+
+// if (!extensionRef || extensionRef != "rao") {
+//   return Astro.redirect("/");
+// }
+
+---
+<BaseLayout title="Updated">
+  <MyConfetti client:load />
+  <main class="w-screen flex flex-col items-center justify-center h-[85vh] font-jost">
+    <h1 class="text-5xl">extension updated!</h1>
+    <p class="pt-8 text-lg">
+      Thanks for continuing to use Remove AI Overview. New changes this version can be found
+      <a href="https://github.com/kakajuro/remove-ai-overview/releases/latest" class="hover:underline hover:cursor-pointer">here</a>.
+    </p>
+    <p class=" text-gray-200 pb-8 text-lg">
+      Feeling generous? Consider
+      <a href="/donate" class="hover:underline hover:decoration-red-500 hover:cursor-pointer">supporting</a>
+      the extension!
+    </p>
+  </main>
+</BaseLayout>
+
